@@ -1,7 +1,8 @@
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
-  const value = fetch("https://anapioficeandfire.com/api/books");
-  return value;
+  return fetch("https://anapioficeandfire.com/api/books")
+  .then((resp) => resp.json())
+  .then((booksArry) => renderBooks(booksArry));
 }
 
 function renderBooks(books) {
@@ -19,4 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((json) => {
       renderBooks(json);
     });
+  
 });
+
